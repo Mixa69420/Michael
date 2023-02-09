@@ -2,15 +2,20 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Bg extends JComponent {
+    //Farben
+    public String pSchwarz = "#8b8f7f";
+    public String pRot = "#db907d";
+    public String pStandart = "#615639";
+    public String pStandart2 = "#6b8c70";
+    //public final static int prozent = 0; //
     public final static int breite = 75;
-
+    //C:\Users\vikto\IdeaProjects\Schach\res\springer.png
     public Bg() {
+        ImageIcon springer = new ImageIcon("C:\\Users\\vikto\\IdeaProjects\\Schach\\res\\springer.png");
+        JLabel j1 = new JLabel(springer);
+        //add(j1);
 
-        ImageIcon lauefer = new ImageIcon("C:\\Users\\vikto\\IdeaProjects\\Schach\\res\\lauefer.png");
-        JLabel j1 = new JLabel(lauefer);
-
-
-        //Obere Buchstaben
+        /*Obere Buchstaben
         JLabel lb1 = new JLabel(" a       b       c       d        e       f        g       h");
         lb1.setBounds(100, 435, 915, 935);
         lb1.setForeground(Color.BLACK);
@@ -23,38 +28,48 @@ public class Bg extends JComponent {
         lb2.setBounds(100, -425, 915, 935);
         lb2.setForeground(Color.BLACK);
         add(lb2);
-        lb2.setFont(new Font("Arial", Font.PLAIN, 40));
+        lb2.setFont(new Font("Arial", Font.PLAIN, 40));*/
+
+        /*String[] buchstaben = {"A", "B", "C", "D", "E", "F", "G", "H"};
+        int buchstabenArray = 0;
+        for (int x = breite + 34; x <= 700 + breite + 34; x += 100) {
+            JLabel buchstabenOben = new JLabel(buchstaben[buchstabenArray].toLowerCase());
+            buchstabenOben.setBounds(x, 435, 915, 935);
+            buchstabenOben.setForeground(Color.BLACK);
+            add(buchstabenOben);
+            buchstabenOben.setFont(new Font("Arial", Font.PLAIN, 40));
+
+            JLabel buchstabenUnten = new JLabel(buchstaben[buchstabenArray]);
+            buchstabenUnten.setBounds(x, -425, 915, 935);
+            buchstabenUnten.setForeground(Color.BLACK);
+            add(buchstabenUnten);
+            buchstabenUnten.setFont(new Font("Arial", Font.PLAIN, 40));
+            buchstabenArray++;
+        }
 
         int einsBis8 = 1;
         for (int i = -340; i <= 360; i += 100) {
-            //Linke Zahlen
-            JLabel lb4 = new JLabel("" + einsBis8);
-            lb4.setBounds(40, i, 915, 935);
-            lb4.setForeground(Color.BLACK);
-            add(lb4);
-            lb4.setFont(new Font("Arial", Font.PLAIN, 40));
+            JLabel linkeZahlen = new JLabel("" + einsBis8);
+            linkeZahlen.setBounds(40, i, 915, 935);
+            linkeZahlen.setForeground(Color.BLACK);
+            add(linkeZahlen);
+            linkeZahlen.setFont(new Font("Arial", Font.PLAIN, 40));
 
-            //Rechte Zahlen
-            JLabel lb3 = new JLabel("" + einsBis8);
-            lb3.setBounds(890, i, 915, 935);
-            lb3.setForeground(Color.BLACK);
-            add(lb3);
-            lb3.setFont(new Font("Arial", Font.PLAIN, 40));
+            JLabel rechteZahlen = new JLabel("" + einsBis8);
+            rechteZahlen.setBounds(890, i, 915, 935);
+            rechteZahlen.setForeground(Color.BLACK);
+            add(rechteZahlen);
+            rechteZahlen.setFont(new Font("Arial", Font.PLAIN, 40));
             einsBis8++;
-
-
-
         }
     }
-
 
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.decode("#f7eed7"));
 
-        //Schach Feld
-
+        //Schach Fel
         /*reihe 1
         g2.fillRect(50,50,100,100);
         g2.fillRect(50,250,100,100);
@@ -101,10 +116,10 @@ public class Bg extends JComponent {
         g2.fillRect(750,150,100,100);
         g2.fillRect(750,350,100,100);
         g2.fillRect(750,550,100,100);
-        g2.fillRect(750,750,100,100);*/
+        g2.fillRect(750,750,100,100);
 
         int position = 800 + breite;
-        int hoehe = 800 + breite * 2;
+        int hoehe = 800 + breite * 2; // <--
 
         for (int x = breite; x <= breite + 600; x += 200) {
             for (int y = breite; y <= breite + 600; y += 200) {
@@ -116,11 +131,10 @@ public class Bg extends JComponent {
                 g2.fillRect(x, y, 100, 100);
             }
         }
-
-
         //Rahmen definieren
         Graphics2D g3 = (Graphics2D) g;
-        g3.setColor(Color.decode("#615639"));
+
+        g3.setColor(Color.decode(pStandart));
 
         //links/rechts
         g3.fillRect(0, 0, breite, hoehe);
@@ -131,7 +145,9 @@ public class Bg extends JComponent {
         g3.fillRect(0, position, hoehe, breite);
 
         Graphics2D g4 = (Graphics2D) g;
-        g3.setColor(Color.decode("#000000"));
+
+        //rand(schwarz)
+        g4.setColor(Color.decode("#000000"));
 
         for (int x = breite; x <= breite + 600; x += 200) {
             for (int y = breite; y <= breite + 600; y += 200) {
@@ -143,8 +159,6 @@ public class Bg extends JComponent {
                 g4.drawRect(x, y, 100, 100);
             }
         }
-        g4.drawRect(breite, breite, 800, 800);
-
-
+        g4.drawRect(breite, breite, 800, 800);*/
     }
 }

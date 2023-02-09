@@ -1,6 +1,6 @@
 public class Figuren {
 
-    public Figuren(){
+    public Figuren() {
 
     }
 }

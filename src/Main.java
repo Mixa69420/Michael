@@ -5,6 +5,7 @@ public class Main {
         new Bg();
         new Jf();
         new Figuren();
+        //&new Music("T1.WAV");
 
     }
 }
